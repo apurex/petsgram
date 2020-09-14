@@ -24,12 +24,12 @@ export class ApirestService {
     return this.http.get<any>(this.urls.user + `/${user}`);
   }
 
-  getPost(page: number = 1) : Observable<any>  {
+  getPost(page: number = 0) : Observable<any>  {
     let paginate = `?page=${page}&limit=10`;
     return this.http.get<any>(this.urls.post + paginate);
   }
 
-  getPostByTag(tag, page = 1) : Observable<any> {
+  getPostByTag(tag, page = 0) : Observable<any> {
     let paginate = `?page=${page}&limit=15`;
     return this.http.get<any>(this.urls.postByTag + `/${tag}/post` + paginate);
   }
