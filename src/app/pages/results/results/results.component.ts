@@ -70,7 +70,7 @@ export class ResultsComponent implements OnInit {
 
   }
 
-  onAuthor() {
+  onAuthor(author) {
 
   }
 
