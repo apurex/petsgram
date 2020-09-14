@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { ApirestService } from 'src/app/services/apirest.service';
-import { PostModalComponent } from './modals/post-modal/post-modal.component';
-import { ProfileComponent } from './modals/profile/profile.component';
+import { AuthorModalComponent } from '../layout/modals/author-modal/author-modal.component';
+import { PostDetailModalComponent } from '../layout/modals/post-detail-modal/post-detail-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   openPost(event) {
-    this.modalRef = this.modalService.show(PostModalComponent, {
+    this.modalRef = this.modalService.show(PostDetailModalComponent, {
       // class: 'modal-lg',
       data: {
         post: event
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
   }
 
   openProfile(author) {
-    this.modalRef = this.modalService.show(ProfileComponent, {
+    this.modalRef = this.modalService.show(AuthorModalComponent, {
       class: "modal-notify modal-info",
       data: {
         author: author,

@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h4 class="modal-title w-100" id="myModalLabel">&nbsp;</h4>
+</div>
+
+<div class="modal-body">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+                <img [src]="post.image" class="img-fluid" alt="Responsive image">
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Comentarios</h4>
+                        <hr>
+                    </div>
+                    <div class="comment-widgets">
+                        <!-- Comment Row -->
+                        <div *ngFor="let comment of comments" class="d-flex flex-row comment-row m-t-0">
+                            <div class="p-2">
+                                <img [src]="comment.owner.picture" alt="user" width="50" class="rounded-circle">
+                            </div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">{{ comment.owner.firstName }}</h6>
+                                <span class="m-b-15 d-block">
+                                    {{ comment.message }}
+                                </span>
+                                <div class="comment-footer">
+                                    <span class="text-muted float-right">{{ post.publishDate | date :'short'}}</span>
+                                    <!-- <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                    <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Delete</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Card -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-info waves-effect" aria-label="Close" (click)="modalRef.hide()"
+        mdbWavesEffect>Close</button>
+    <!-- <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button> -->
+</div>

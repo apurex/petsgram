@@ -8,12 +8,10 @@ import { HomeComponent } from './home.component';
 import { LayoutModule } from '../layout/layout.module';
 import { ApirestService } from 'src/app/services/apirest.service';
 import { PostsComponent } from './partials/posts/posts.component';
-import { PostModalComponent } from './modals/post-modal/post-modal.component';
-import { ProfileComponent } from './modals/profile/profile.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, PostsComponent, PostModalComponent, ProfileComponent],
+  declarations: [HomeComponent, PostsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
