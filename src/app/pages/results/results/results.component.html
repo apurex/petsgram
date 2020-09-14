@@ -1,0 +1,62 @@
+<div class="container py-4">
+    <div class="row">
+
+        <div class="col-12">
+            <h4 class="font-weight-bold">
+                #{{ tag }}
+            </h4>
+            <h4 class="text-muted">
+                {{ total }} Publicaciones
+            </h4>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div *ngFor="let post of posts" class="col-md-4">
+            <!-- POTS -->
+            
+            <div class="card card-blog">
+                <div (click)="onOpen(post)" class="card-image">
+                    <a href="javascript:void(0)"> <img class="img" [src]="post.image">
+                        <!-- <div class="card-caption"> Quisque a bibendum magna </div> -->
+                    </a>
+                    <div class="ripple-cont"></div>
+                </div>
+                <div class="table">
+            
+                    <p class="card-description">
+                        {{ post.text }}
+                    </p>
+                    <!-- <h6 class="category text-info">
+                        <span style="cursor: pointer;" (click)="onTag(tag)" *ngFor="let tag of post.tags">
+                            #{{ tag }}
+                        </span>
+                    </h6> -->
+            
+                </div>
+                <div class="ftr p-4">
+                    <div class="author">
+                        <a (click)="onAuthor(post.owner)" href="javascript:void(0)">
+                            <img [src]="post.owner.picture" alt="" class="avatar img-raised">
+                            <span>{{ post.owner.firstName }}</span>
+                        </a>
+                    </div>
+                    <div class="stats">
+                        <i class="fas fa-heart text-danger"></i> {{ post.likes }} &nbsp;
+                        <i class="far fa-clock"></i> {{ post.publishDate | date :'short'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+            (scrolled)="onScroll()"></div>
+    </div>
+
+</div>
