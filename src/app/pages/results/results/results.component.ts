@@ -12,7 +12,7 @@ import { PostDetailModalComponent } from '../../layout/modals/post-detail-modal/
 })
 export class ResultsComponent implements OnInit {
 
-  page = 1;
+  page = 0;
   limit: number;
 
   tag: string;
@@ -37,12 +37,13 @@ export class ResultsComponent implements OnInit {
   }
 
   getPost(tag) {
-    this.service.getPostByTag(tag)
+    this.service.getPostByTag(tag, this.page)
       .subscribe(
         resp => {
           this.posts = resp['data'];
           this.total = resp['total'];
           this.limit = resp['limit'];
+          console.log(resp);
         },
         error => {
           console.log(error);

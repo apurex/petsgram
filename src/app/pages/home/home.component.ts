@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   modalRef: MDBModalRef;
   posts: any;
-  page = 1;
+  page = 0;
   limit: number;
 
   constructor(
